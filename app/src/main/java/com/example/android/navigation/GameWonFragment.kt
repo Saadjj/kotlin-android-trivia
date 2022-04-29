@@ -44,9 +44,9 @@ class GameWonFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater?.inflate(R.menu.winner_menu, menu)
-        if(null==getShareIntent().resolveActivity(activity!!.packageManager)){
-            menu.findItem(R.id.share)?.setVisible(false)
+        inflater.inflate(R.menu.winner_menu, menu)
+        if(null==getShareIntent().resolveActivity(requireActivity().packageManager)){
+            menu.findItem(R.id.share)?.isVisible=false
         }
     }
 
@@ -64,7 +64,7 @@ class GameWonFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item!!.itemId){
+        when (item.itemId){
             R.id.share->shareSucess()
         }
         return super.onOptionsItemSelected(item)
